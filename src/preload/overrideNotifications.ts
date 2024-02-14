@@ -19,7 +19,7 @@ const newNotify = function (title: string, options?: NotificationOptions) {
     console.log("Notification setting requireInteraction !");
     console.log(options);
     options.silent = false;
-    options.requireInteraction = true;
+    options.requireInteraction = false;
   }
   const instance: Notification = new NativeNotification(title, options);
   instance.addEventListener('click', clickCallback);
