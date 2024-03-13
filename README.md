@@ -113,10 +113,20 @@ curl -fsSL https://get.pnpm.io/install.sh | sh -
 git clone https://github.com/ankurk91/google-chat-electron.git
 cd google-chat-electron
 
-pnpm install
+npm install
 npm run pack:linux
 npx electron-installer-redhat@^3 --src dist/google-chat-electron-linux-x64 --dest dist/installers/ --arch x86_64
 ```
+
+### Installation (Kubuntu)
+```bash
+npm install
+npm run clean:dist
+npm run pack:linux
+npm run build:deb
+sudo dpkg -i dist/installers/google-chat-electron_2.20.1_amd64.deb
+```
+
 
 This will create an RPM package in `./dist/installers` folder (you can specify any location you wish).
 You can install it with `dnf` or `rpm-ostree` depending on your distro.
