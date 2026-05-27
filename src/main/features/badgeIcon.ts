@@ -12,11 +12,13 @@ const scriptPath = path.join(app.getPath('appData'), 'google-chat-electron', 'on
 // Decide app icon based on favicon URL
 const decideIcon = (href: string): IconTypes => {
   let type: IconTypes = 'offline';
-
-  if (href.match(/favicon_chat_r5/) ||
-    href.match(/favicon_chat_new_non_notif_r5/)) {
+  console.log(`decideIcon() href : ${href}`);
+  if (href.match(/favicon_no_dot/)) {
+    console.log("1: "+href.match(/favicons/));
+    console.log("2: "+href.match(/favicon_no_dot/));
     type = 'normal';
-  } else if (href.match(/favicon_chat_new_notif_r5/)) {
+  } else if (href.match(/favicon_dot/)) {
+    console.log(`decideIcon() href matched favicon_dot`);
     type = 'badge';
   }
 
